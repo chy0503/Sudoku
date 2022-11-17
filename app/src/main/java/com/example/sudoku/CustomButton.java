@@ -10,7 +10,7 @@ public class CustomButton extends FrameLayout {
     int value;
 
     public CustomButton(Context context) {
-
+        super(context);
     }
 
     public CustomButton(Context context, int row, int col) {
@@ -20,8 +20,9 @@ public class CustomButton extends FrameLayout {
         setBackgroundResource(R.drawable.button_selector);
     }
 
-    void setText(String text) {
+    void setTextNum(Context context, String text) {
         TextView textView = new TextView(context);
+        textView.setText(text);
         addView(textView);
     }
 }

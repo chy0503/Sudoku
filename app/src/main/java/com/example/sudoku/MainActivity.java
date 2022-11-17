@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
                 buttons[i][j] = new CustomButton(this);
                 buttons[i][j].setLayoutParams(layoutParams);
                 if (Math.random() >= 0.5)
-                    buttons[i][j].setText(String.valueOf(board.get(i, j)));
+                    buttons[i][j].setTextNum(this, String.valueOf(board.get(i, j)));
                 tableRow.addView(buttons[i][j]);
             }
         }
