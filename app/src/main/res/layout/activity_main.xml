@@ -3,4 +3,6 @@
     android:id="@+id/tableLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#8C9EFF"></TableLayout>
+    android:background="#8C9EFF">
+</TableLayout>
+
