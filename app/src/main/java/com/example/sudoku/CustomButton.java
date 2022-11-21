@@ -23,7 +23,7 @@ public class CustomButton extends FrameLayout {
 
     void set(Context context, int a) {
         TextView textView = new TextView(context);
-        textView.setTextSize(30);
+        textView.setTextSize(32);
         textView.setGravity(CENTER);
         if (a == 0)
             textView.setText(" ");

@@ -1,24 +1,17 @@
 package com.example.sudoku;
 
-import static android.view.Gravity.CENTER;
-import static android.view.View.VISIBLE;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
 
 //        FrameLayout frame = (FrameLayout)findViewById(R.id.frameLayout);
 //        LinearLayout padLayout = new LinearLayout(this);
@@ -46,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 TableRow.LayoutParams.WRAP_CONTENT,
                 TableRow.LayoutParams.WRAP_CONTENT,
                 1.0f);
-        layoutParams.setMargins(5, 5, 5, 5);
+        layoutParams.setMargins(5, 5, 5, 5); // 이게 왜 공통적으로 적용이 되는가.. 했다 이거쥥
         CustomButton[][] buttons = new CustomButton[9][9];
         BoardGenerator board = new BoardGenerator();
         for (int i=0; i<9; i++) {
