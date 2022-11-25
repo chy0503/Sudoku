@@ -3,6 +3,8 @@ package com.example.sudoku;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.SystemClock;
+import android.widget.Chronometer;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
@@ -12,6 +14,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
+
+        Chronometer chronometer = findViewById(R.id.chronometer);
+        chronometer.setBase(SystemClock.elapsedRealtime());
+        chronometer.start();
+
 
 //        FrameLayout frame = (FrameLayout)findViewById(R.id.frameLayout);
 //        LinearLayout padLayout = new LinearLayout(this);
