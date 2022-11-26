@@ -3,6 +3,7 @@ package com.example.sudoku;
 import static android.view.Gravity.CENTER;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -25,6 +26,7 @@ public class CustomButton extends FrameLayout {
         TextView textView = new TextView(context);
         textView.setTextSize(32);
         textView.setGravity(CENTER);
+        textView.setTextColor(Color.BLACK);
         if (a == 0)
             textView.setText(" ");
         else
