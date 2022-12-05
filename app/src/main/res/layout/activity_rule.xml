@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8C9EFF">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/r_backB"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/back_main"
+        android:onClick="backBClick"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="10dp"
+        app:civ_circle_background_color="@color/white"
+        android:layout_margin="30dp"
+        android:layout_gravity="left|top"/>
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="150dp"
+        android:layout_marginHorizontal="30dp"
+        android:text="아홉 3×3 칸에 숫자가 1부터 9까지 하나씩만 들어가야 한다."
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="50dp"
+        android:layout_marginHorizontal="80dp"
+        android:layout_gravity="center_horizontal|bottom">
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"/>
+        <Button
+            android:id="@+id/r1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circle_button_white"
+            android:onClick="ruleClick"
+            android:text="1"
+            android:textColor="#8C9EFF"
+            android:textSize="25dp"/>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"/>
+        <Button
+            android:id="@+id/r2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circle_button_white"
+            android:onClick="ruleClick"
+            android:text="2"
+            android:textColor="#8C9EFF"
+            android:textSize="25dp"/>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"/>
+        <Button
+            android:id="@+id/r3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/circle_button_white"
+            android:onClick="ruleClick"
+            android:text="3"
+            android:textColor="#8C9EFF"
+            android:textSize="25dp"/>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"/>
+
+    </LinearLayout>
+</FrameLayout>

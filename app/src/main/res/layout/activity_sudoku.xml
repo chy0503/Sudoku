@@ -1,273 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <include layout="@layout/actionbar_sudoku"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="100dp"
-        android:layout_gravity="center_horizontal|top"
-        android:id="@+id/timeBar">
-
-        <Button
-            android:layout_width="110dp"
-            android:layout_height="match_parent"
-            android:text="RESET"
-            android:textColor="#FFFFFF"
-            android:textSize="18dp"
-            android:background="@drawable/left_btn_background" />
-        <Button
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
-            android:background="#8C9EFF"
-            android:clickable="false"/>
-
-        <Button
-            android:layout_width="110dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/right_btn_background"
-            android:text="CLEAR"
-            android:textColor="#FFFFFF"
-            android:textSize="18dp" />
-    </LinearLayout>
-
-    <Chronometer
-        android:id="@+id/chronometer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|top"
-        android:layout_marginTop="104dp"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:textColor="@color/white"/>
-
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="5dp"
-        android:layout_marginTop="190dp"
-        android:layout_gravity="center_horizontal|top"
-        android:background="#8C9EFF"></TableLayout>
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/undoB"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:civ_border_width="10dp"
-        app:civ_border_color="#8C9EFF"
-        android:layout_marginBottom="45dp"
-        android:layout_marginLeft="50dp"
-        android:layout_gravity="left|bottom"
-        android:src="@drawable/undo"
-        app:civ_circle_background_color="#8C9EFF"/>
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/hintB"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:civ_border_width="10dp"
-        app:civ_border_color="#8C9EFF"
-        android:layout_marginBottom="45dp"
-        android:layout_gravity="center_horizontal|bottom"
-        android:src="@drawable/hint"
-        app:civ_circle_background_color="#8C9EFF"/>
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/redoB"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        app:civ_border_width="10dp"
-        app:civ_border_color="#8C9EFF"
-        android:layout_marginBottom="45dp"
-        android:layout_marginRight="50dp"
-        android:layout_gravity="right|bottom"
-        android:src="@drawable/redo"
-        app:civ_circle_background_color="#8C9EFF"/>
-
-    <ImageView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/padBG"
-        android:visibility="gone"
-        android:background="#99000000">
-    </ImageView>
+        android:id="@+id/s_layout">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/pad"
-        android:visibility="gone"
-        android:layout_gravity="center"
-        android:background="@color/white"
-        android:orientation="vertical"
-        android:padding="20dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginTop="100dp"
+            android:layout_gravity="center_horizontal|top">
 
-        <TextView
-            android:layout_width="match_parent"
+            <Button
+                android:id="@+id/resetB"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:text="RESET"
+                android:textColor="#FFFFFF"
+                android:textSize="18dp"
+                android:background="@drawable/left_btn_background" />
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                android:background="#8C9EFF"
+                android:clickable="false"/>
+
+            <Button
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/right_btn_background"
+                android:text="CLEAR"
+                android:textColor="#FFFFFF"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <Chronometer
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:textAlignment="center"
-            android:text="Input Number"
-            android:textSize="25dp"/>
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="104dp"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
 
         <TableLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="190dp"
+            android:layout_gravity="center_horizontal|top"
+            android:background="#8C9EFF"></TableLayout>
 
-            <TableRow>
-                <Button
-                    android:id="@+id/n1"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="3dp"
-                    android:background="@drawable/numberpad_button"
-                    android:onClick="levelClick"
-                    android:text="1"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30dp" />
-                <Button
-                    android:id="@+id/n2"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="3dp"
-                    android:background="@drawable/numberpad_button"
-                    android:onClick="levelClick"
-                    android:text="2"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30dp" />
-                <Button
-                    android:id="@+id/n3"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="3dp"
-                    android:background="@drawable/numberpad_button"
-                    android:onClick="levelClick"
-                    android:text="3"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30dp" />
-            </TableRow>
-            <TableRow>
-                <Button
-                    android:id="@+id/n4"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="3dp"
-                    android:background="@drawable/numberpad_button"
-                    android:onClick="levelClick"
-                    android:text="4"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30dp" />
-                <Button
-                    android:id="@+id/n5"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="3dp"
-                    android:background="@drawable/numberpad_button"
-                    android:onClick="levelClick"
-                    android:text="5"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30dp" />
-                <Button
-                    android:id="@+id/n6"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="3dp"
-                    android:background="@drawable/numberpad_button"
-                    android:onClick="levelClick"
-                    android:text="6"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30dp" />
-            </TableRow>
-            <TableRow>
-                <Button
-                    android:id="@+id/n7"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="3dp"
-                    android:background="@drawable/numberpad_button"
-                    android:onClick="levelClick"
-                    android:text="7"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30dp" />
-                <Button
-                    android:id="@+id/n8"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="3dp"
-                    android:background="@drawable/numberpad_button"
-                    android:onClick="levelClick"
-                    android:text="8"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30dp" />
-                <Button
-                    android:id="@+id/n9"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="3dp"
-                    android:background="@drawable/numberpad_button"
-                    android:onClick="levelClick"
-                    android:text="9"
-                    android:textColor="#FFFFFF"
-                    android:textSize="30dp" />
-            </TableRow>
-            <TableRow>
-                <Button
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="3dp"
-                    android:background="@drawable/solid_button"
-                    android:onClick="levelClick"
-                    android:visibility="invisible"
-                    android:clickable="false"/>
-                <Button
-                    android:id="@+id/cancelB"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="3dp"
-                    android:background="@drawable/numberpad_button"
-                    android:text="CANCEL"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18dp" />
-                <Button
-                    android:id="@+id/deleteB"
-                    android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="3dp"
-                    android:background="@drawable/numberpad_button"
-                    android:onClick="levelClick"
-                    android:text="del"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18dp" />
-            </TableRow>
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/undoB"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:civ_border_width="10dp"
+            app:civ_border_color="#8C9EFF"
+            android:layout_marginBottom="45dp"
+            android:layout_marginLeft="50dp"
+            android:layout_gravity="left|bottom"
+            android:src="@drawable/undo"
+            app:civ_circle_background_color="#8C9EFF"/>
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/hintB"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:civ_border_width="10dp"
+            app:civ_border_color="#8C9EFF"
+            android:layout_marginBottom="45dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:src="@drawable/hint"
+            app:civ_circle_background_color="#8C9EFF"/>
 
-
-        </TableLayout>
-    </LinearLayout>
-
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/redoB"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:civ_border_width="10dp"
+            app:civ_border_color="#8C9EFF"
+            android:layout_marginBottom="45dp"
+            android:layout_marginRight="50dp"
+            android:layout_gravity="right|bottom"
+            android:src="@drawable/redo"
+            app:civ_circle_background_color="#8C9EFF"/>
+    </FrameLayout>
 
 </FrameLayout>
-
-<!-- numberPad(TableLayout) 동적으로 만들기 -->
-
