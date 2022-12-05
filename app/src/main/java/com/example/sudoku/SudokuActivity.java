@@ -4,18 +4,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SubActivity extends AppCompatActivity {
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class SudokuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sudoku);
-
         getSupportActionBar().hide();
 
         Chronometer chronometer = findViewById(R.id.chronometer);
@@ -24,7 +29,6 @@ public class SubActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         double level = intent.getExtras().getDouble("level");
-
 
 //        FrameLayout frame = (FrameLayout)findViewById(R.id.frameLayout);
 //        LinearLayout padLayout = new LinearLayout(this);
@@ -65,19 +69,64 @@ public class SubActivity extends AppCompatActivity {
                     buttons[i][j].set(this, board.get(i, j));
                 else
                     buttons[i][j].set(this, 0);
-//                buttons[i][j].setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        numberPad.setVisibility(view.VISIBLE);
-//                    }
-//                });
+                buttons[i][j].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        numberPadSet("pad");
+                    }
+                });
                 tableRow.addView(buttons[i][j]);
             }
         }
+
+        Button padCancelB = findViewById(R.id.cancelB);
+        padCancelB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                numberPadSet("back");
+            }
+        });
     }
 
     public void HomeB_Click(View v) {
         finish();
+    }
+
+    public void numberPadSet(String screen) {
+        ImageView P1 = findViewById(R.id.padBG);
+        LinearLayout P2 = findViewById(R.id.pad);
+        Toolbar S1 = findViewById(R.id.sudokuBar);
+        LinearLayout S2 = findViewById(R.id.timeBar);
+        Chronometer S3 = findViewById(R.id.chronometer);
+        TableLayout S4 = findViewById(R.id.tableLayout);
+        CircleImageView S5 = findViewById(R.id.undoB);
+        CircleImageView S6 = findViewById(R.id.hintB);
+        CircleImageView S7 = findViewById(R.id.redoB);
+
+        switch(screen) {
+            case "pad":
+                P1.setVisibility(View.VISIBLE);
+                P2.setVisibility(View.VISIBLE);
+                S1.setClickable(false);
+                S2.setClickable(false);
+                S3.setClickable(false);
+                S4.setClickable(false);
+                S5.setClickable(false);
+                S6.setClickable(false);
+                S7.setClickable(false);
+                break;
+            case "back":
+                P1.setVisibility(View.GONE);
+                P2.setVisibility(View.GONE);
+                S1.setClickable(true);
+                S2.setClickable(true);
+                S3.setClickable(true);
+                S4.setClickable(true);
+                S5.setClickable(true);
+                S6.setClickable(true);
+                S7.setClickable(true);
+                break;
+        }
     }
 
     public void setConflict() {
@@ -88,3 +137,4 @@ public class SubActivity extends AppCompatActivity {
 
     }
 }
+// numberpad 문제

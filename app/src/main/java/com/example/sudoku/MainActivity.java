@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void levelClick(View v) {
-        Intent intent = new Intent(getApplicationContext(), SubActivity.class);
+        Intent intent = new Intent(getApplicationContext(), SudokuActivity.class);
         int id = v.getId();
         switch(id) {
             case R.id.easyB:
