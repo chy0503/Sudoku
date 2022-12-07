@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
-public class CustomDialog {
+public class CustomNumpad {
     private Context context;
     Dialog dlg;
 
-    public CustomDialog(Context context) {
+    public CustomNumpad(Context context) {
         this.context = context;
     }
 
@@ -21,7 +21,7 @@ public class CustomDialog {
         dlg.show();
         dlg.setCancelable(false);
 
-        Button cancelB = (Button) dlg.findViewById(R.id.d_cancelB);
+        Button cancelB = (Button) dlg.findViewById(R.id.n_cancelB);
         cancelB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

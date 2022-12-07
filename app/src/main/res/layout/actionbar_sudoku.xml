@@ -24,7 +24,7 @@
             app:srcCompat="@drawable/home"/>
 
         <TextView
-            android:id="@+id/tv_logo"
+            android:id="@+id/level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"

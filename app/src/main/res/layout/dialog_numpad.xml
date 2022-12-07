@@ -146,7 +146,7 @@
                     android:visibility="invisible"
                     android:clickable="false"/>
                 <Button
-                    android:id="@+id/d_cancelB"
+                    android:id="@+id/n_cancelB"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
