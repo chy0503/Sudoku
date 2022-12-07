@@ -25,7 +25,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class SudokuActivity extends AppCompatActivity {
-    private final int DYNAMIC_VIEW_ID = 0x8000;
+    CustomButton clickedCustomButton;
+    CustomDialog customDialog;
+    CustomButton[][] buttons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,7 @@ public class SudokuActivity extends AppCompatActivity {
             public void onClick(View view) {
                 table.removeAllViews();
                 bordGenerate(level);
+                chronometer.setBase(SystemClock.elapsedRealtime());
             }
         });
     }
@@ -56,40 +59,42 @@ public class SudokuActivity extends AppCompatActivity {
     public void bordGenerate(double level) {
         TableLayout table = (TableLayout)findViewById(R.id.tableLayout);
         table.setPadding(15, 15, 15, 15);
-        TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(
-                TableRow.LayoutParams.WRAP_CONTENT,
-                TableRow.LayoutParams.WRAP_CONTENT,
-                1.0f);
-        layoutParams.setMargins(5, 5, 5, 5);
-        CustomButton[][] buttons = new CustomButton[9][9];
+        buttons = new CustomButton[9][9];
         BoardGenerator board = new BoardGenerator();
         for (int i=0; i<9; i++) {
             TableRow tableRow = new TableRow(this);
             table.addView(tableRow);
             for (int j = 0; j < 9; j++) {
                 buttons[i][j] = new CustomButton(this, i, j);
-                buttons[i][j].setLayoutParams(layoutParams);
-//                buttons[i][j].setId(DYNAMIC_VIEW_ID + numButton);
                 if (Math.random() >= level) {
-                    buttons[i][j].set(this, board.get(i, j));
+                    buttons[i][j].set(board.get(i, j));
                     buttons[i][j].setClickable(false);
                 }
                 else {
-                    buttons[i][j].set(this, 0);
+                    buttons[i][j].set(0);
+                    buttons[i][j].setClickable(true);
                     buttons[i][j].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            CustomDialog customDialog = new CustomDialog(SudokuActivity.this);
-
-                            // 커스텀 다이얼로그를 호출한다.
-                            // 커스텀 다이얼로그의 결과를 출력할 TextView를 매개변수로 같이 넘겨준다.
-//                            customDialog.callFunction(main_label);
-                            int num = customDialog.callFunction();
-//                            buttons[i][j].set(this, num); // 몰라잉 시발
+                            clickedCustomButton = (CustomButton) view;
+                            customDialog = new CustomDialog(SudokuActivity.this);
+                            customDialog.callFunction();
                         }
                     });
-
                 }
+                TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(
+                        TableRow.LayoutParams.WRAP_CONTENT,
+                        TableRow.LayoutParams.WRAP_CONTENT,
+                        1.0f);
+                int left = 5, top = 5, right = 5, bottom = 5;
+                if (i == 3 || i == 6) {
+                    top = 10;
+                }
+                if (j == 3 || j == 6) {
+                    left = 10;
+                }
+                layoutParams.setMargins(left, top, right, bottom);
+                buttons[i][j].setLayoutParams(layoutParams);
                 tableRow.addView(buttons[i][j]);
             }
         }
@@ -99,30 +104,79 @@ public class SudokuActivity extends AppCompatActivity {
         finish();
     }
 
-    public void numpadReturn(View v) {
-        int num = 0;
+    // 눌린 numpad의 아이디를 받아 n+i에서 substring으로 숫자만 분리
+    public void onClickNum(View v) {
         String str = v.getResources().getResourceEntryName(v.getId());
-        num = Integer.valueOf(str.substring(1));
+        if (clickedCustomButton.value != 0) {
+            unsetConflict();
+        }
+        clickedCustomButton.set(Integer.valueOf(str.substring(1)));
+        clickedCustomButton.clicked();
+        setConflict();
+        customDialog.dlgDismiss();
+        clickedCustomButton.setTextColor("#8C9EFF");
     }
 
-
     public void setConflict() {
+        int row = clickedCustomButton.row;
+        int col = clickedCustomButton.col;
+        int sqRow = row / 3;
+        int sqCol = col / 3;
 
+        for (int i = 0; i < 9 ; i++) {
+            if (buttons[i][col].value == clickedCustomButton.value)
+                buttons[i][col].setTextColor("#FF0066");
+        }
+        for (int j = 0; j < 9 ; j++) {
+            if (buttons[row][j].value == clickedCustomButton.value)
+                buttons[row][j].setTextColor("#FF0066");
+        }
+        for (int i = sqRow * 3; i < (sqRow + 1) * 3 ; i++) {
+            for (int j = sqCol * 3; j < (sqCol + 1) * 3 ; j++) {
+                if (buttons[i][j].value == clickedCustomButton.value)
+                    buttons[i][j].setTextColor("#FF0066");
+            }
+        }
     }
 
     public void unsetConflict() {
+        int row = clickedCustomButton.row;
+        int col = clickedCustomButton.col;
+        int sqRow = row / 3;
+        int sqCol = col / 3;
 
+        for (int i = 0; i < 9 ; i++) {
+            if (buttons[i][col].value == clickedCustomButton.value) {
+                if (buttons[i][col].isBold == true)
+                    buttons[i][col].setTextColor("#8C9EFF");
+                else
+                    buttons[i][col].setTextColor("#000000");
+            }
+        }
+        for (int j = 0; j < 9 ; j++) {
+            if (buttons[row][j].value == clickedCustomButton.value) {
+                if (buttons[row][j].isBold == true)
+                    buttons[row][j].setTextColor("#8C9EFF");
+                else
+                    buttons[row][j].setTextColor("#000000");
+            }
+        }
+        for (int i = sqRow * 3; i < (sqRow + 1) * 3 ; i++) {
+            for (int j = sqCol * 3; j < (sqCol + 1) * 3 ; j++) {
+                if (buttons[i][j].value == clickedCustomButton.value) {
+                    if (buttons[i][j].isBold == true)
+                        buttons[i][j].setTextColor("#8C9EFF");
+                    else
+                        buttons[i][j].setTextColor("#000000");
+                }
+            }
+        }
     }
 }
 
-// 배열버튼 넘기고 numpad 반환
-// 충돌 검사
 // 메모
 // clear
-// 3*3마다 진한 선
 
-// rule 사진
-// rule fix
 // record 부가
 // undo, redo
 // hint

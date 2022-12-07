@@ -19,6 +19,7 @@
         android:padding="20dp">
 
         <TextView
+            android:id="@+id/inputNum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -38,7 +39,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="3dp"
                     android:background="@drawable/numberpad_button"
-                    android:onClick="lnumpadReturn"
+                    android:onClick="onClickNum"
                     android:text="1"
                     android:textColor="#FFFFFF"
                     android:textSize="30dp" />
@@ -49,7 +50,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="3dp"
                     android:background="@drawable/numberpad_button"
-                    android:onClick="numpadReturn"
+                    android:onClick="onClickNum"
                     android:text="2"
                     android:textColor="#FFFFFF"
                     android:textSize="30dp" />
@@ -60,7 +61,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="3dp"
                     android:background="@drawable/numberpad_button"
-                    android:onClick="numpadReturn"
+                    android:onClick="onClickNum"
                     android:text="3"
                     android:textColor="#FFFFFF"
                     android:textSize="30dp" />
@@ -73,7 +74,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="3dp"
                     android:background="@drawable/numberpad_button"
-                    android:onClick="numpadReturn"
+                    android:onClick="onClickNum"
                     android:text="4"
                     android:textColor="#FFFFFF"
                     android:textSize="30dp" />
@@ -84,7 +85,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="3dp"
                     android:background="@drawable/numberpad_button"
-                    android:onClick="numpadReturn"
+                    android:onClick="onClickNum"
                     android:text="5"
                     android:textColor="#FFFFFF"
                     android:textSize="30dp" />
@@ -95,7 +96,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="3dp"
                     android:background="@drawable/numberpad_button"
-                    android:onClick="numpadReturn"
+                    android:onClick="onClickNum"
                     android:text="6"
                     android:textColor="#FFFFFF"
                     android:textSize="30dp" />
@@ -108,7 +109,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="3dp"
                     android:background="@drawable/numberpad_button"
-                    android:onClick="numpadReturn"
+                    android:onClick="onClickNum"
                     android:text="7"
                     android:textColor="#FFFFFF"
                     android:textSize="30dp" />
@@ -119,7 +120,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="3dp"
                     android:background="@drawable/numberpad_button"
-                    android:onClick="numpadReturn"
+                    android:onClick="onClickNum"
                     android:text="8"
                     android:textColor="#FFFFFF"
                     android:textSize="30dp" />
@@ -130,7 +131,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="3dp"
                     android:background="@drawable/numberpad_button"
-                    android:onClick="numpadReturn"
+                    android:onClick="onClickNum"
                     android:text="9"
                     android:textColor="#FFFFFF"
                     android:textSize="30dp" />
@@ -155,12 +156,13 @@
                     android:textColor="#FFFFFF"
                     android:textSize="18dp" />
                 <Button
-                    android:id="@+id/d_deleteB"
+                    android:id="@+id/n0"
                     android:layout_width="90dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_margin="3dp"
                     android:background="@drawable/numberpad_button"
+                    android:onClick="onClickNum"
                     android:text="del"
                     android:textColor="#FFFFFF"
                     android:textSize="18dp" />

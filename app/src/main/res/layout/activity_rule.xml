@@ -7,8 +7,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/r_backB"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/back_main"
         android:onClick="backBClick"
         app:civ_border_color="@color/white"
@@ -17,12 +17,21 @@
         android:layout_margin="30dp"
         android:layout_gravity="left|top"/>
 
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/rule1"/>
+
+
     <TextView
         android:id="@+id/desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="140dp"
         android:layout_marginHorizontal="30dp"
         android:text="아홉 3×3 칸에 숫자가 1부터 9까지 하나씩만 들어가야 한다."
         android:textColor="@color/white"
