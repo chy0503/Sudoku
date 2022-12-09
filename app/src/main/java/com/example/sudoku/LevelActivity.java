@@ -28,10 +28,10 @@ public class LevelActivity extends AppCompatActivity {
         int id = v.getId();
         switch(id) {
             case R.id.l_easyB:
-                intent.putExtra("level", 0.3);
+                intent.putExtra("level", 0.25);
                 break;
             case R.id.l_normalB:
-                intent.putExtra("level", 0.5);
+                intent.putExtra("level", 0.4);
                 break;
             case R.id.l_hardB:
                 intent.putExtra("level", 0.65);

@@ -6,7 +6,6 @@
     android:background="#8C9EFF">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/r_backB"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/back_main"

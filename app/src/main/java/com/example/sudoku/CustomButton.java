@@ -6,12 +6,10 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 public class CustomButton extends FrameLayout {
     int row;
@@ -19,7 +17,7 @@ public class CustomButton extends FrameLayout {
     int value;
     TextView textView;
     TextView[] memos;
-    boolean isBold = false; // 사용자가 숫자를 입력한 곳
+    boolean isBold = false; // 초기에 생성된 곳과 사용자가 숫자를 입력한 곳을 구분
 
     public CustomButton(Context context, int row, int col) {
         super(context);
@@ -58,10 +56,6 @@ public class CustomButton extends FrameLayout {
         }
     }
 
-    void setTextColor(String color) {
-        textView.setTextColor(Color.parseColor(color));
-    }
-
     void clicked() {
         if (value != 0) {
             textView.setTypeface(null, Typeface.BOLD);
@@ -70,5 +64,9 @@ public class CustomButton extends FrameLayout {
             textView.setTypeface(null, Typeface.NORMAL);
             isBold = false;
         }
+    }
+
+    void setTextColor(String color) {
+        textView.setTextColor(Color.parseColor(color));
     }
 }

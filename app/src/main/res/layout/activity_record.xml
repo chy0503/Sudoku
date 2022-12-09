@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8C9EFF">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/back_main"
+        android:onClick="backBClick"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="10dp"
+        app:civ_circle_background_color="@color/white"
+        android:layout_margin="30dp"
+        android:layout_gravity="left|top" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Best Record"
+            android:textSize="50dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="40dp"
+            android:layout_marginTop="110dp"
+            android:background="@drawable/round_background_white">
+            <TableRow>
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:text="Easy"
+                    android:textSize="25dp"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:id="@+id/easy_bestRecord"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="0:00"
+                    android:textSize="25dp"
+                    android:textAlignment="center" />
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:text="Normal"
+                    android:textSize="25dp"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:id="@+id/normal_bestRecord"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="0:00"
+                    android:textSize="25dp"
+                    android:textAlignment="center"/>
+            </TableRow>
+            <TableRow
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:text="Hard"
+                    android:textSize="25dp"
+                    android:textAlignment="center"/>
+                <TextView
+                    android:id="@+id/hard_bestRecord"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="0:00"
+                    android:textSize="25dp"
+                    android:textAlignment="center"/>
+            </TableRow>
+        </TableLayout>
+    </FrameLayout>
+</FrameLayout>

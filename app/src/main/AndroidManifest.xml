@@ -24,6 +24,7 @@
         <activity android:name=".RuleActivity" />
         <activity android:name=".LevelActivity" />
         <activity android:name=".SudokuActivity" />
+        <activity android:name=".RecordActivity" />
     </application>
     
 </manifest>
