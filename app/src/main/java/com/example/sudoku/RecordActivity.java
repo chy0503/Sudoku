@@ -14,13 +14,13 @@ public class RecordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_record);
         getSupportActionBar().hide();
 
-        SharedPreferences pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        SharedPreferences SP = getSharedPreferences("SP", Activity.MODE_PRIVATE);
         TextView easy = findViewById(R.id.easy_bestRecord);
         TextView normal = findViewById(R.id.normal_bestRecord);
         TextView hard = findViewById(R.id.hard_bestRecord);
 
-        easy.setText(pref.getString("easy_BR", "0 : 00"));
-        normal.setText(pref.getString("normal_BR", "0 : 00"));
-        hard.setText(pref.getString("hard_BR", "0 : 00"));
+        easy.setText(SP.getString("easy_BR", "99 : 99 : 99"));
+        normal.setText(SP.getString("normal_BR", "99 : 99 : 99"));
+        hard.setText(SP.getString("hard_BR", "99 : 99 : 99"));
     }
 }

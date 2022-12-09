@@ -37,7 +37,7 @@ public class SudokuActivity extends AppCompatActivity {
     boolean[] selectedToggleButtons = new boolean[9];
 
     // 기록 저장
-    SharedPreferences pref;
+    SharedPreferences SP;
     SharedPreferences.Editor editor;
     String myStr;
     String levelSP;
@@ -56,16 +56,9 @@ public class SudokuActivity extends AppCompatActivity {
         Intent intent = getIntent();
         level = intent.getExtras().getDouble("level");
 
-        // SharedPreferences 식별값 설정, 초기화
-        if (level == 0.25)
-            levelSP = "easy_BR";
-        else if (level == 0.4)
-            levelSP = "normal_BR";
-        else
-            levelSP = "hard_BR";
-
-        pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
-        editor = pref.edit();
+        // SharedPreferences 초기화
+        SP = getSharedPreferences("SP", Activity.MODE_PRIVATE);
+        editor = SP.edit();
 
         // RESET을 누를 시, 스도쿠 재생성
         table = (TableLayout)findViewById(R.id.tableLayout);
@@ -193,7 +186,7 @@ public class SudokuActivity extends AppCompatActivity {
             for (int j = 0; j < 9; j++) {
                 buttons[i][j] = new CustomButton(this, i, j);
                 // 초기에 생성된 곳 - 클릭 할 수 없도록 함
-                if (Math.random() >= 0.05) {
+                if (Math.random() >= level) {
                     buttons[i][j].set(board.get(i, j));
                     buttons[i][j].setClickable(false);
                 }
@@ -338,7 +331,15 @@ public class SudokuActivity extends AppCompatActivity {
 
             // 게임 클리어 다이얼로그 - 최고 기록 불러오기
             TextView BestRecord = complete.findViewById(R.id.bestRecord);
-            myStr = pref.getString(levelSP, "0 : 00");
+            if (level == 0.25)
+                levelSP = "easy_BR";
+            else if (level == 0.4)
+                levelSP = "normal_BR";
+            else
+                levelSP = "hard_BR";
+            myStr = SP.getString(levelSP, "9 : 99 : 99");
+            editor.putString(levelSP, myStr);
+            editor.apply();
             BestRecord.setText(myStr);
 
             // 게임 클리어 다이얼로그 - 현재 기록과 최고 기록 비교하여 업데이트
@@ -451,7 +452,7 @@ public class SudokuActivity extends AppCompatActivity {
 
     // best record 비교, 업데이트 함수
     void recordUpdate(String record) {
-        String bestRecord = pref.getString(levelSP, "0 : 00");
+        String bestRecord = SP.getString(levelSP, "99 : 99 : 99");
         String BR[] = bestRecord.split(" : ");
         String R[] = record.split(" : ");
         if (BR.length < R.length)
