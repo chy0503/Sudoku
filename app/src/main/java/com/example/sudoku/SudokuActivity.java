@@ -455,8 +455,10 @@ public class SudokuActivity extends AppCompatActivity {
         String bestRecord = SP.getString(levelSP, "99 : 99 : 99");
         String BR[] = bestRecord.split(" : ");
         String R[] = record.split(" : ");
+        // {시, 분, 초}와 {분, 초}을 비교하면 {분, 초}가 best 기록
         if (BR.length < R.length)
             return;
+        // 배열의 길이가 같다면 각 배열의 숫자를 비교
         else if(BR.length == R.length) {
             for (int i = 0; i < BR.length; i++) {
                 if(Integer.valueOf(BR[0]) < Integer.valueOf(R[0]))
