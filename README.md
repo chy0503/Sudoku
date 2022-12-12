@@ -11,7 +11,7 @@
 - Framework : android studio
 <br/><br/>
 
-### 1. 레이아웃 구조
+### 1. UI 구조
 <img width="500" alt="image" src="https://user-images.githubusercontent.com/90389517/206843108-4d0f9bf9-746c-43b4-9cc5-4e15841e8e0a.png">
 <br/>
 
