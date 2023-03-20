@@ -12,8 +12,8 @@
 <br/><br/>
 
 ### 1. UI 구조
-<img width="500" alt="image" src="https://user-images.githubusercontent.com/90389517/206843108-4d0f9bf9-746c-43b4-9cc5-4e15841e8e0a.png">
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/90389517/206843108-4d0f9bf9-746c-43b4-9cc5-4e15841e8e0a.png">
 <br/>
 
 ### 2. 추가 기능
-<img width="500" alt="image" src="https://user-images.githubusercontent.com/90389517/206843150-ecf7b35b-42aa-4ed0-a9e3-164f233618ca.png">
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/90389517/206843150-ecf7b35b-42aa-4ed0-a9e3-164f233618ca.png">
